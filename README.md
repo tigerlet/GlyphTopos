@@ -46,9 +46,8 @@ pip install matplotlib fonttools numpy
 python GlyphTopos.py
 ```
 
-> One entry point is provided with identical functionality:
-> - `GlyphTopos.py` — English UI
-
+> Entry point:
+> - `GlyphTopos.py` — application entry point
 
 1. The program launches with the default `simkai.ttf` in the project directory.
 2. Enter any character (e.g., "国", "回", "A") in the input box and press **Enter** or click **Analyze**.
@@ -61,9 +60,19 @@ python GlyphTopos.py
 
 ```
 /
-├── GlyphTopos.py              Main program — English UI (GUI + analysis engine)
+├── GlyphTopos.py              Application entry point (matplotlib config + GUI launch)
+├── glyph_analyzer/            Core analysis package
+│   ├── __init__.py            Unified exports (PrecisionPen, GlyphAnalyzer, GlyphAnalyzerApp)
+│   ├── pen.py                 PrecisionPen — adaptive Bézier curve sampling
+│   ├── analyzer.py            GlyphAnalyzer — font loading, contour extraction, geometry & topology
+│   └── gui/                   GUI sub-package
+│       ├── __init__.py
+│       ├── styles.py          ttk theme and style definitions
+│       ├── toolbar.py         Top toolbar (font picker, character input, display toggles)
+│       ├── panels.py          Outline plotting panel + data display panels
+│       └── app.py             GlyphAnalyzerApp — main application class
 ├── simkai.ttf                 Example font file (Kai style)
-└── README.md                  English documentation
+└── README.md                  Documentation
 ```
 
 ## Analysis Algorithm

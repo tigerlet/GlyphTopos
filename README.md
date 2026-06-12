@@ -83,5 +83,10 @@ python GlyphTopos.py
 4. **Topology detection** — Uses a ray-casting point-in-polygon test to determine nesting relationships, selecting the smallest enclosing contour (or component) as the direct parent.
 
 ## License
+## Author
+
+Yuming Xu
+
+---
 
 Use for learning and research purposes.
